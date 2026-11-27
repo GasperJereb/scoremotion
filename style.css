@@ -65,9 +65,9 @@
   --num-w:80px;   /* the width of every number box (Loudest peak, the loudness target, an EQ frequency) */
   --r-sm:7px; --r-ctl:8px; --r-card:12px; --r-lg:14px; --r-win:18px;   /* corner scale: small control, control, card, large card, window. A group around controls uses the control corner plus the gap (7 + 4 = 11) */
 
-  --bg:#e9ecf2; --panel:#f6f7fa; --panel2:#ffffff; --line:#cfd4de; --ink:#1a1d26; --muted:#5f6778; --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 8 14 8' fill='none' stroke='%235f6778' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  --bg:#f5efe5; --panel:#ffffff; --panel2:#ffffff; --line:#e3d7c6; --ink:#1b1a18; --muted:#6f6a62; --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 8 14 8' fill='none' stroke='%235f6778' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   --hairline:color-mix(in srgb,var(--ink) 13.5%,transparent);   /* a divider or an unlit light on a tinted surface (where --line disappears in dark mode); made from ink, so it follows each theme with no override */
-  --accent:#3f55e6; --accent-ink:#ffffff; --accent-soft:rgba(63,85,230,.12);
+  --accent:#00522c; --accent-ink:#ffffff; --accent-soft:rgba(0,82,44,.12);
   --thumb-bg:#ffffff; --thumb-edge:rgba(16,20,40,.16);   /* a slider's handle: a pale pill with a hairline edge, so blue means only the value set */
   --fade:#b0389c; --turn:#d97706; --turn-soft:rgba(251,185,40,.34); --play:#d6333f; --cred:#12907c; --cred-soft:rgba(18,144,124,.20);
   --stage:#dfe3ea; --block:#ffffff; --wave:#7c8bf0; --danger:#c4283a;
@@ -97,8 +97,8 @@
 /* ----- Dark mode: follows the device setting ----- */
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#14171d; --panel:#1b1f27; --panel2:#232833; --line:#2f3542; --ink:#e8eaf0; --muted:#98a0b1; --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 8 14 8' fill='none' stroke='%2398a0b1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-    --accent:#8c9cff; --accent-ink:#10131c; --accent-soft:rgba(140,156,255,.16);
+    --bg:#18231e; --panel:#202e27; --panel2:#293b31; --line:#40564a; --ink:#f5efe5; --muted:#bcbab2; --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 8 14 8' fill='none' stroke='%2398a0b1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    --accent:#a9d8bd; --accent-ink:#003d22; --accent-soft:rgba(169,216,189,.16);
     --thumb-bg:#eceef3; --thumb-edge:rgba(0,0,0,.4);
     --fade:#e58bd6; --turn:#f59e3b; --turn-soft:rgba(255,176,46,.30); --play:#ff6a5f; --cred:#4fd1bd; --cred-soft:rgba(79,209,189,.26); --turn-ink:#f59e3b; --turn-sys:#98a3b8; --ok-ink:#2fb872;
     --stage:#0d0f13; --block:#252b37; --wave:#6f7fe0; --danger:#ff7b8a;
@@ -112,8 +112,8 @@
 
 /* ----- Dark mode: forced via data-theme="dark" ----- */
 :root[data-theme="dark"]{
-  --bg:#14171d; --panel:#1b1f27; --panel2:#232833; --line:#2f3542; --ink:#e8eaf0; --muted:#98a0b1; --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 8 14 8' fill='none' stroke='%2398a0b1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  --accent:#8c9cff; --accent-ink:#10131c; --accent-soft:rgba(140,156,255,.16);
+  --bg:#18231e; --panel:#202e27; --panel2:#293b31; --line:#40564a; --ink:#f5efe5; --muted:#bcbab2; --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 8 14 8' fill='none' stroke='%2398a0b1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  --accent:#a9d8bd; --accent-ink:#003d22; --accent-soft:rgba(169,216,189,.16);
   --thumb-bg:#eceef3; --thumb-edge:rgba(0,0,0,.4);
   --fade:#e58bd6; --turn:#f59e3b; --turn-soft:rgba(255,176,46,.30); --play:#ff6a5f; --cred:#4fd1bd; --cred-soft:rgba(79,209,189,.26); --turn-ink:#f59e3b; --turn-sys:#98a3b8; --ok-ink:#2fb872;
   --stage:#0d0f13; --block:#252b37; --wave:#6f7fe0; --danger:#ff7b8a;
@@ -134,7 +134,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
 input[type=range]{touch-action:pan-y}
 [hidden]{display:none!important}
 body{margin:0;height:100%;background:var(--bg);color:var(--ink);
-  font:var(--type-value)/1.45 'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  font:var(--type-value)/1.45 Inter,'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font:inherit;color:inherit}
 :root{--lh:1.45}
 /* every line box is a whole number of pixels, so a control or a stack of text never lands on half a pixel (where the text would sit up to a pixel off its box). Set --lh, never line-height, for a factor; a fixed px line-height is fine. */
@@ -149,7 +149,7 @@ html *,html ::before,html ::after{line-height:round(calc(var(--lh) * 1em),1px)}
 
 /* ----- Logo / site name ----- */
 .brand{display:flex;align-items:center;gap:var(--gap-card);margin-right:var(--gap-tight)}
-.brand h1{font:500 22px 'Newsreader',Georgia,serif;line-height:round(1em,1px);--lh:1;font-style:italic;letter-spacing:.2px}
+.brand h1{font:500 22px Georgia,serif;line-height:round(1em,1px);--lh:1;font-style:italic;letter-spacing:.2px}
 
 /* ----- File chips (loaded PDF / audio names) ----- */
 .chips{display:flex;gap:var(--gap-head);flex:0 1 auto;min-width:0;flex-wrap:nowrap;padding-right:var(--gap-label)}
@@ -208,8 +208,8 @@ html *,html ::before,html ::after{line-height:round(calc(var(--lh) * 1em),1px)}
 /* ----- Intro / empty state text and buttons ----- */
 .empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:var(--gap-hero);background:var(--stage)}
 .empty[hidden]{display:none}
-.empty h1{font:500 clamp(24px,3.2vw,38px) 'Newsreader',Georgia,serif;line-height:round(1.1em,1px);--lh:1.1;margin:0;white-space:nowrap}
-.empty h2{font:500 clamp(24px,3.2vw,38px) 'Newsreader',Georgia,serif;line-height:round(1.1em,1px);--lh:1.1;margin:0;white-space:nowrap}
+.empty h1{font:500 clamp(24px,3.2vw,38px) Georgia,serif;line-height:round(1.1em,1px);--lh:1.1;margin:0;white-space:nowrap}
+.empty h2{font:500 clamp(24px,3.2vw,38px) Georgia,serif;line-height:round(1.1em,1px);--lh:1.1;margin:0;white-space:nowrap}
 @media (max-width:520px){.empty h2{white-space:normal}}
 .empty p{margin:0;color:var(--muted);max-width:46ch;text-wrap:balance}
 .empty .empty-intro{max-width:none;white-space:nowrap}
@@ -489,7 +489,7 @@ body.dragging .dropveil{opacity:1;visibility:visible;transition:opacity var(--ae
 /* ----- Dialog box, buttons row, progress bar ----- */
 .dlg .row{flex-wrap:wrap}
 .dlg{width:min(480px,92vw);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel);color:var(--ink);padding:var(--gap-room) var(--gap-room-x);display:grid;gap:var(--gap-field)}
-.dlg h2{margin:0;font:500 24px 'Newsreader',Georgia,serif;line-height:round(1.1em,1px);--lh:1.1}
+.dlg h2{margin:0;font:500 24px Georgia,serif;line-height:round(1.1em,1px);--lh:1.1}
 .dlg p{margin:0;color:var(--muted)}
 .bar{height:10px;border-radius:99px;background:var(--panel2);border:1px solid var(--line);overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:var(--accent)}
@@ -1144,7 +1144,7 @@ body.dragging .start-card:first-child{border-color:var(--accent);transform:trans
 .sc-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:var(--r-lg);background:var(--accent-soft);color:var(--accent);margin-bottom:var(--gap-label);transition:transform var(--t-hover) var(--spring-hover)}
 .sc-ic svg{width:25px;height:25px}
 @media (hover:hover) and (pointer:fine){.start-card:hover .sc-ic{transform:scale(1.1) rotate(-4deg)}}
-.start-card h3{margin:0;max-width:100%;font:600 16px 'Hanken Grotesk',system-ui,sans-serif;line-height:round(1.2em,1px);--lh:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.start-card h3{margin:0;max-width:100%;font:600 16px Inter,'Hanken Grotesk',system-ui,sans-serif;line-height:round(1.2em,1px);--lh:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .start-card p{margin:0 0 var(--gap-head);font-size:var(--type-body);--lh:1.45;color:var(--muted);text-wrap:balance}
 .start-card .row{margin-top:auto}
 .empty .empty-intro{font-size:var(--type-body);margin-bottom:0}
@@ -1913,7 +1913,7 @@ input.switch:disabled{cursor:progress;opacity:var(--inactive)}
 .hist{position:absolute;right:0;top:calc(100% + var(--gap-head));z-index:30;width:min(360px,92vw);display:grid;gap:var(--gap-head);padding:var(--gap-field) var(--gap-field) var(--gap-set);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--panel);box-shadow:var(--shadow-pop)}
 .hist[hidden]{display:none}
 .hist-top{min-width:0}
-.hist-top h3{margin:0;font:500 18px 'Newsreader',Georgia,serif;line-height:round(1.1em,1px);--lh:1.1}
+.hist-top h3{margin:0;font:500 18px Georgia,serif;line-height:round(1.1em,1px);--lh:1.1}
 .hist-list{position:relative;list-style:none;margin:0;padding:0;max-height:min(46vh,380px);overflow:auto;display:block}
 .hs-row{position:relative;padding-left:var(--hs-indent)}
 .hs-row::before{content:'';position:absolute;left:var(--gap-tight);top:0;bottom:0;width:2px;background:var(--line)}
@@ -2363,7 +2363,7 @@ input.switch:disabled{cursor:progress;opacity:var(--inactive)}
 /* "Bypassed" beside the title of the tools that have no picture to carry it (the others draw it in the corner of their picture) */
 .ae-ptl{display:flex;align-items:center;gap:var(--gap-card);min-width:0;height:20px}
 @container aedlg (max-width:728px){.ae-ptl{height:auto;min-height:20px}}          /* the narrow layout lets a long tool name wrap onto a second line */
-.ae-bypill{flex:none;height:var(--step-s);padding:0 var(--gap-card);border-radius:99px;background:var(--ink);color:var(--panel2);font:600 var(--type-note)/22px 'Hanken Grotesk',system-ui,sans-serif;opacity:0;transform:translateY(calc(var(--ae-lift-sm) * -1)) scale(.94);pointer-events:none;visibility:hidden;transition:opacity var(--ae-ms) var(--ease-ui),transform var(--ae-move) var(--spring-hover),visibility 0s var(--ae-move)}
+.ae-bypill{flex:none;height:var(--step-s);padding:0 var(--gap-card);border-radius:99px;background:var(--ink);color:var(--panel2);font:600 var(--type-note)/22px Inter,'Hanken Grotesk',system-ui,sans-serif;opacity:0;transform:translateY(calc(var(--ae-lift-sm) * -1)) scale(.94);pointer-events:none;visibility:hidden;transition:opacity var(--ae-ms) var(--ease-ui),transform var(--ae-move) var(--spring-hover),visibility 0s var(--ae-move)}
 #audioDlg[data-by="1"][data-tool="fades"] .ae-bypill,#audioDlg[data-by="1"][data-tool="spec"] .ae-bypill,#audioDlg[data-by="1"][data-tool="emu"] .ae-bypill{opacity:1;transform:none;visibility:visible;transition-delay:0s}
 @media (prefers-reduced-motion:reduce){.ae-bypill{transition:none}}
 
@@ -2764,3 +2764,9 @@ input.switch:disabled{cursor:progress;opacity:var(--inactive)}
 .erase-x-chip{display:grid;place-items:center;width:var(--erase-x);height:var(--erase-x);border-radius:50%;background:var(--glass-bg),var(--panel2);box-shadow:var(--erase-x-shadow);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);transition:color var(--ae-quick) var(--ease-color)}
 .erase-x-chip svg{width:8px;height:8px}
 .erase-x:hover .erase-x-chip,.erase-x:focus-visible .erase-x-chip{color:var(--danger)}
+
+/* ScoreMotion identity: keep editor geometry and controls intact. */
+.sm-wordmark{display:flex;align-items:center;gap:.45em;height:100%;font-family:Georgia,serif;font-weight:400;font-style:normal;color:var(--ink);white-space:nowrap;line-height:1}
+.sm-wordmark img{display:block;height:100%;width:auto;flex:none;background:#f5efe5;border-radius:50%}
+.brand h1 .sm-wordmark{font-size:20px}.empty-logo .sm-wordmark{font-size:clamp(28px,5vw,48px)}
+@media(max-width:520px){.brand h1 .sm-wordmark{font-size:16px}}

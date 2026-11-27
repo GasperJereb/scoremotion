@@ -1,3 +1,9 @@
+# ScoreMotion
+
+An independent modified fork of [Glisscore](https://github.com/franklindhansen/glisscore), by Franklin Hansen. Not endorsed by the original author. ScoreMotion 0.1.1 changes the visual identity only; the upstream application logic is retained. Licensed under AGPL-3.0; see LICENSE and THIRD_PARTY_NOTICES.md.
+
+## Original upstream documentation
+
 # *glisscore*
 
 Score videos made easy.
