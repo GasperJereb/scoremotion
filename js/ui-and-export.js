@@ -325,7 +325,7 @@ function syncControls() {
   $('#bend').value = s.bend; $('#bendOut').textContent = s.bend + '%';
   document.querySelectorAll('input[name=ref]').forEach(r => r.checked = r.value === s.ref);
   syncFirstAlone(); syncPageLayout(false);
-  $('#margin').value = s.margin; $('#marginOut').textContent = s.margin + '%'; $('#letterbox').checked = !!s.letterbox;
+  $('#margin').value = s.margin; $('#marginOut').textContent = s.margin + '%'; $('#letterbox').checked = !!s.letterbox; $('#horizontalScroll').checked = !!s.horizontalScroll;
   if (CSEL.bg) CSEL.bg.paint(); updateHint();
   $('#invert').checked = !!s.invert; $('#inkField').hidden = !s.invert;
   if (CSEL.ink) CSEL.ink.paint();
@@ -733,6 +733,7 @@ function bindSettings() {
     if (S.pdf) { S.time = S.vStart; rebuildSpreads(false); }
   });
   $('#margin').addEventListener('input', e => { S.set.margin = +e.target.value; $('#marginOut').textContent = S.set.margin + '%'; dirty(); });
+  $('#horizontalScroll').addEventListener('change', e => { S.set.horizontalScroll = e.target.checked; dirty(); });
   $('#letterbox').addEventListener('change', e => { S.set.letterbox = e.target.checked; dirty(); });
   colorSelect('bg', v => { S.set.bg = v; dirty(); });
   /* Invert colors: the paper drops out and the notes take the ink color; a light background is switched to black for you */
@@ -1244,7 +1245,7 @@ async function exportWebCodecs(o, fps, dur, ctl, caps) {
     for (let i = 0; i < totalFrames; i++) {
       if (ctl.cancelled || encErr) break;
       const v = i < 4, n = i + 1, st = frameState(S.vStart + i / fps, S.vStart + (totalFrames - 1) / fps);          // the fade-out ends on the last frame drawn
-      const key = st.spread + '|' + st.flip + '|' + st.fade + '|' + creditsAlpha(st.t);          // nothing on screen has moved since the last frame: the canvas still holds it, so it is not drawn again
+      const key = st.spread + '|' + st.flip + '|' + st.scroll + '|' + st.fade + '|' + creditsAlpha(st.t);          // nothing on screen has moved since the last frame: the canvas still holds it, so it is not drawn again
       if (key !== lastKey) {
         stage('frame ' + n + ': loading score pages');
         await withTimeout(rend.ensure(pagesFor(st)), TIMEOUTS.ensure, 'loading score pages for frame ' + n);

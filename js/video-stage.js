@@ -590,7 +590,15 @@ class Renderer {
     /* one half of the score: its x-range, and how strongly it casts a shadow (0 when nothing is there) */
     const half = (side, w) => side === 0 ? { x0: lay.x0, x1: lay.cx, w } : { x0: lay.cx, x1: lay.cx + lay.pw, w };
     const reveal = !!nx && !!nx.credits && sp[1] === -1;     // the last page stands alone, so there is no page to turn: the credits fade up beside it
-    if (reveal) {
+    if (horizontalOn() && st.scroll != null) {
+      // Both adjacent system textures share the same frame geometry. Move them together,
+      // without easing or a page-turn effect, so timeline boundaries are continuous.
+      this.useShadow = false;
+      const next = S.spreads[st.spread + 1];
+      const shift = st.scroll * lay.pw;
+      drawPage(sp[1], lay.cx - shift, 1);
+      if (next) drawPage(next[1], lay.cx + lay.pw - shift, 1);
+    } else if (reveal) {
       const p = 0.5 - 0.5 * Math.cos(Math.PI * st.flip), base = this.scoreFade;
       this.useShadow = false;
       this.drawScoreShadow(lay, half(0, sw(sp[0])), half(1, 0));

@@ -59,7 +59,7 @@ function syncPageLayout(glide) {
   const one = soloOn();
   document.querySelectorAll('input[name=pageLayout]').forEach(r => { r.checked = r.value === S.set.pageLayout; });
   const seg = $('#pagesField .seg'); if (seg && seg._place) seg._place(!!glide);
-  $('#firstAloneField').hidden = one; $('#centerFold').hidden = one; $('#letterboxField').hidden = !sysOn(); applyTransitionUI();
+  $('#firstAloneField').hidden = one; $('#centerFold').hidden = one; $('#letterboxField').hidden = !sysOn(); $('#horizontalScrollField').hidden = !sysOn(); applyTransitionUI();
   if (!sysOn() && (SYS.prog || SYS.job)) SYS.stop();          // leaving System ends the finding at once
   sysUI();
 }
@@ -414,6 +414,14 @@ function audioGain() {
 function frameState(t, fe) {
   const n = S.spreads.length, fade = fadeAt(t, fe);
   if (!n) return { spread: 0, flip: null, t, fade };
+  if (horizontalOn()) {
+    let cur = 0;
+    while (cur < n - 1 && t >= S.turns[cur]) cur++;
+    const start = cur === 0 ? S.vStart : S.turns[cur - 1], end = S.turns[cur];
+    const a = S.spreads[cur], z = S.spreads[cur + 1];
+    const scroll = z && a && a[1] >= 0 && z[1] >= 0 && Number.isFinite(end) ? clamp((t - start) / Math.max(0.001, end - start), 0, 1) : null;
+    return { spread: cur, flip: null, scroll, t, fade };
+  }
   const D = flipDur(), off = refOffset();
   let cur = 0;
   while (cur < n - 1 && t >= S.turns[cur] - off + D) cur++;
@@ -426,7 +434,7 @@ function frameState(t, fe) {
 function pagesFor(st) {
   const sp = S.spreads[st.spread]; if (!sp) return [];
   const out = [sp[0], sp[1]];
-  if (st.flip != null) { const nx = S.spreads[st.spread + 1]; if (nx) out.push(nx[0], nx[1]); }
+  if (st.flip != null || st.scroll != null) { const nx = S.spreads[st.spread + 1]; if (nx) out.push(nx[0], nx[1]); }
   return out.filter(i => i >= 0);
 }
 
