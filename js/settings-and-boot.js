@@ -352,7 +352,7 @@ function boot() {
   ['#btnPdf', '#btnPdf2'].forEach(s => $(s).addEventListener('click', () => $('#pdfIn').click()));
   ['#btnAudio', '#btnAudio3'].forEach(s => $(s).addEventListener('click', () => $('#audioIn').click()));
   $('#btnAudio2').addEventListener('click', () => { if (S.audio) openAudioEditor(); else $('#audioIn').click(); });
-  $('#scScore').addEventListener('click', e => { if (!e.target.closest('button')) $('#pdfIn').click(); });
+  $('#scScore').addEventListener('click', e => { if (!e.target.closest('button, a')) $('#pdfIn').click(); });
   $('#scAudio').addEventListener('click', e => { if (!e.target.closest('button')) $('#btnAudio2').click(); });
   $('#pdfIn').addEventListener('change', e => { if (e.target.files[0]) loadPdf(e.target.files[0]); e.target.value = ''; });
   $('#audioIn').addEventListener('change', e => { if (e.target.files[0]) loadAudio(e.target.files[0]); e.target.value = ''; });
