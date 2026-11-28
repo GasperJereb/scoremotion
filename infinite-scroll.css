@@ -8,3 +8,5 @@
 .project-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0}.project-tools #projectStatus{color:var(--muted);margin-left:8px}
 
 .project-drop{border:1px dashed var(--line);padding:7px 12px;color:var(--muted);border-radius:3px}.project-drop.drop-active{border-color:var(--green);background:var(--paper);color:var(--green)}
+
+.preview-wrap{position:relative;max-width:100%;width:fit-content}.preview-wrap canvas{max-width:100%}#safeOverlay{position:absolute;inset:0;pointer-events:none;overflow:hidden}#safeOverlay[hidden]{display:none}.safe-rect{position:absolute;inset:10% 12% 20% 6%;border:2px dashed #00522c;box-shadow:0 0 0 2000px #1b1a1844}.safe-rect span{position:absolute;top:0;left:0;background:#00522c;color:white;font-size:10px;padding:3px 6px}.export-panel{background:white;border:1px solid var(--line);padding:16px;margin:12px 0}.export-panel h2{font:400 25px Georgia,serif;margin:0 0 12px}.export-settings{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin:12px 0}.export-settings span{color:var(--muted);font-size:12px}.export-panel progress{width:100%;accent-color:var(--green)}
